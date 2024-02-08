@@ -5,22 +5,11 @@
   justify-content: center;
 }
 
-.tasks {
+.landing h1 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.actions {
   display: flex;
-  flex-direction: column;
   gap: 1rem;
-}
-
-.addButton {
-  background-color: var(--primary) !important;
-  color: #fff !important;
-  height: 3.5rem !important;
-  width: 3.5rem !important;
-  position: absolute !important;
-  bottom: 3rem;
-  right: 3rem;
-}
-
-.addButton:hover {
-  background-color: var(--darkPrimary);
 }

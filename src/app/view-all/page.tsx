@@ -1,17 +1,18 @@
 // Import necessary dependencies and components
 "use client";
-import styles from "./page.module.css";
+import styles from "./viewAll.module.css";
 import TaskTile from "@/components/TaskTile/TaskTile";
 import { useAppSelector } from "@/redux/store";
 import { useState, useEffect } from "react";
-import { Task } from "../../types";
 import Loading from "@/components/Loading/Loading";
 import EmptyState from "@/components/EmptyState/EmptyState";
-import { Button } from "@mui/material";
-import Link from "next/link";
+import { Task } from "../../../types";
 
 // Define the Home component
-export default function Home() {
+export default function page() {
+  // Retrieve tasks from the Redux store
+  const tasks = useAppSelector((state) => state.tasks);
+
   // State variable to track whether the component is running on the client-side
   const [isClient, setIsClient] = useState(false);
 
@@ -25,17 +26,17 @@ export default function Home() {
     <main className={styles.main}>
       {isClient ? ( // Check if the component is running on the client-side
         <>
-          <div className={styles.landing}>
-            <h1>Todo App</h1>
-            <div className={styles.actions}>
-              <Link target="_blank" href={"/add-task"}>
-                <Button variant="contained">Add new task</Button>
-              </Link>
-              <Link target="_blank" href={"/view-all"}>
-                <Button variant="outlined">View all tasks</Button>
-              </Link>
+          {/* Fragment shorthand */}
+          {tasks.length > 0 ? ( // Check if there are tasks to display
+            <div className={styles.tasks}>
+              {/* Map over the tasks array and render TaskTile components */}
+              {tasks.map((task: Task) => (
+                <TaskTile task={task} key={task.id} />
+              ))}
             </div>
-          </div>
+          ) : (
+            <EmptyState /> // Render the EmptyState component if no tasks are available
+          )}
         </>
       ) : (
         <Loading /> // Render the Loading component if the page is still loading on the client-side

@@ -24,8 +24,8 @@ export default function RootLayout({
       {/* Use ReduxProvider to wrap the children */}
       <html lang="en">
         <body className={inter.className}>
-          {children}
           <ToastContainer />
+          {children}
           {/* Render the ToastContainer for displaying notifications */}
         </body>
       </html>
