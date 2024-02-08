@@ -1,0 +1,8 @@
+.deleteColor {
+  background-color: #d24545;
+  box-shadow: 5px 5px 0px #d52d2d;
+}
+
+.deleteColor:active {
+  box-shadow: 5px 5px 0px #d52d2d;
+}

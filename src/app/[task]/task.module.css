@@ -1,0 +1,12 @@
+.taskContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.top {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
